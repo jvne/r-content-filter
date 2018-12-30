@@ -1,0 +1,9 @@
+h3 {
+  line-height: 38px;
+  white-space: nowrap;
+  margin: 0;
+}
+
+#results {
+  padding-bottom: 20px;
+}

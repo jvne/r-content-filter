@@ -1,0 +1,81 @@
+<% include partials/header %>
+
+<div class="ui inverted fixed menu">
+  <div class="header item">Subreddit Filter</div>
+  <div class="right menu">
+    <div class="item"></div>
+    <a href="/" class="item"></a>
+  </div>
+</div>
+
+<div class="ui vertically padded grid container">
+  <div class="row">
+    <div class="column">
+      <div class="ui message">
+        <div class="ui center aligned basic segment">
+          <h1 class="ui center aligned header">Filter</h1>
+          <div class="ui hidden divider"></div>
+          
+          <form class="ui form" id="filter-form" action="/filter" method="POST">
+            <div class="ui error message"></div>
+            <div class="field">
+              <div class="ui category search">
+                <div class="ui icon input">
+                  <h3>r/ &nbsp;</h3>
+                  <input class="prompt" type="text" placeholder="subreddit" name="rInput">
+                  <i class="search icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="inline fields">
+                <label>Filter through:</label>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="contentType" value="upvoted" checked>
+                    <label>Upvoted posts</label>
+                  </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                      <input type="radio" name="contentType" value="saved">
+                      <label>Saved posts</label>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <button class="ui submit button">Submit</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui padded container" id="results">
+  <% if (content) { %>
+    <%- content %>
+  <% } %>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $(".ui.radio.checkbox")
+    .checkbox();
+    $(".ui.form")
+    .form({
+      fields: {
+        subreddit: {
+          identifier: "rInput",
+          rules: [{
+            type: "empty",
+            prompt: "Please enter a subreddit."
+          }]
+        }
+      }
+    });
+  });
+</script>
+
+<% include partials/footer %>

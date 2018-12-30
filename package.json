@@ -1,0 +1,17 @@
+{
+  "name": "subredditfilter",
+  "version": "1.0.0",
+  "description": "Filter upvoted or saved posts by subreddit.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jane Chang",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "snoowrap": "^1.15.2"
+  }
+}
